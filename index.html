@@ -4,11 +4,44 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fugaz+One&family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <script src="app.js"></script>
+    <script src="app.js" defer></script>
     <title>Pokemon Team Randomizer</title>
 </head>
 <body>
-    
+    <header>
+        <h1 class="title">POKEMON RANDOMIZER</h1>
+    </header>
+    <div class="content-wrapper">
+        <form class="game-selection-form">
+            <label for="pokemon-games" class="pokemon-games-label">Pokemon Game</label>
+            <select name="pokemon-games" class="pokemon-games" id="pokemon-games">
+                <option disabled selected hidden>Select a Pokemon game</option>
+                <option value="Red/Gree/Blue">Red/Gree/Blue</option>
+                <option value="Yellow">Yellow</option>
+                <option value="Gold and Silver">Gold and Silver</option>
+                <option value="Crystal">Crystal</option>
+                <option value="Ruby and Sapphire">Ruby and Sapphire</option>
+                <option value="FireRed and LeafGreen">FireRed and LeafGreen</option>
+                <option value="Diamond and Pearl">Diamond and Pearl</option>
+                <option value="Platinum">Platinum</option>
+                <option value="HearGold and SoulSilver">HearGold and SoulSilver</option>
+                <option value="Black and White">Black and White</option>
+                <option value="Black 2 and White 2">Black 2 and White 2</option>
+                <option value="X and Y">X and Y</option>
+                <option value="Omega Ruby and Alpha Sapphire">Omega Ruby and Alpha Sapphire</option>
+                <option value="Sun and Moon">Sun and Moon</option>
+                <option value="Ultra Sun and Ultra Moon">Ultra Sun and Ultra Moon</option>
+                <option value="Let's Go, Pikachu! and Let's Go, Eevee!">Let's Go, Pikachu! and Let's Go, Eevee!</option>
+                <option value="Sword and Shield">Sword and Shield</option>
+                <option value="Brilliant Diamond and Shining Pearl">Brilliant Diamond and Shining Pearl</option>
+            </select>
+            <button class="btn" id="btn">RANDOMIZE</button>
+        </form>
+        <div class="display" id="display"></div>
+    </div>
 </body>
 </html>

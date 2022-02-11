@@ -1,11 +1,12 @@
 const btn = document.getElementById('btn');
 const display = document.getElementById("display");
 
-const pokemonId = generatePokemonId();
+let pokemonId;
 
-btn.addEventListener("click", () => {
-    
+btn.addEventListener("click", e => {
+    e.preventDefault();
     console.log(pokemonId);
+    
     getPokemonData();
     
 })
@@ -15,18 +16,31 @@ function generatePokemonId() {
 }
 
 async function getPokemonData() {
-    try {
-        const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonId}`);
-        if (response.status === 200) {
-            const data = await response.json();
-            displayPokemonData(data);
+    display.innerHTML = '';
+    for(let i = 0; i < 6; i++) {
+        pokemonId = generatePokemonId();
+        try {
+            const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonId}`);
+            if (response.status === 200) {
+                const data = await response.json();
+                displayPokemonData(data);
+            }
+        } catch (error) {
+            console.log(error);
         }
-    } catch (error) {
-        console.log(error);
     }
 }
 
 function displayPokemonData(data) {
-    display.innerText = data.name
+    console.log(data); 
+        display.innerHTML += ` 
+        <div class="pokemon">
+            <div class="pokemon-img-wrapper">
+                <img class="pokemon-img" src="${data.sprites.other["official-artwork"].front_default}">
+            </div> 
+            <div class="pokemon-name-wrapper">
+                <h2 class="pokemon-name">${data.name}</h2>
+            </div>
+        </div>
+    `
 }
-

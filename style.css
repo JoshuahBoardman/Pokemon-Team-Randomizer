@@ -1,0 +1,116 @@
+/* Custom Properties */
+
+:root {
+    /* fonts */
+    --header-font: 'Fugaz One', sans-serif;
+    --body-font: 'Roboto', sans-serif;
+
+    /* colors */
+    --primary-color-200: hsl(0, 0%, 98%);
+    --primary-color-800: hsl(0, 0%, 10%);
+}
+
+/* Global Styles */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: var(--body-font);
+    background-color: var(--primary-color-200);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.content-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 70vw;
+}
+
+/* Typography */
+
+.title {
+    font-family: var(--header-font);
+    font-size: 4vmin;
+    color: var(--primary-color-200);
+    max-width: 70vw;
+}
+
+/* Layout */
+
+header {
+    background-color: var(--primary-color-800);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 0;
+    width: 100vw;
+}
+
+.content-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.game-selection-form {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5rem 0;
+}
+
+.pokemon-games-label {
+    position: absolute;
+    left: -10000px;
+}
+
+.pokemon-games {
+    font-size: 1.2rem;
+    border-radius: .25rem;
+    padding: 1rem;
+    margin-right: .5rem;
+    min-width: 45vw;
+    cursor: pointer;
+}
+
+.btn {
+    background-color: var(--primary-color-800);
+    color: var(--primary-color-200);
+    border: 0;
+    border-radius: .25rem;
+    padding: 1.25rem;
+    cursor: pointer;
+}
+
+.display {
+    display: grid;
+    justify-content: space-around;
+    align-items: center;
+    grid-template-columns: 20vmax 20vmax;
+    gap: 1rem;
+}
+
+.pokemon {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 15vmax;
+}
+
+.pokemon-img {
+    width: 11rem    
+}
