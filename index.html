@@ -17,7 +17,11 @@
     </header>
     <div class="content-wrapper">
         <form class="game-selection-form">
-            <label for="pokemon-games" class="pokemon-games-label">Pokemon Game</label>
+            <div class="legend-wrapper"> 
+                <legend>Generate a randomized team for the pokemon game selected:</legend>
+            </div>
+            <div class="form-body">
+            <label for="pokemon-games" class="pokemon-games-label">Select a Pokemon game</label>
             <select name="pokemon-games" class="pokemon-games" id="pokemon-games">
                 <option disabled selected hidden>Select a Pokemon game</option>
                 <option value="Red/Gree/Blue">Red/Gree/Blue</option>
@@ -39,7 +43,8 @@
                 <option value="Sword and Shield">Sword and Shield</option>
                 <option value="Brilliant Diamond and Shining Pearl">Brilliant Diamond and Shining Pearl</option>
             </select>
-            <button class="btn" id="btn">RANDOMIZE</button>
+            <button class="btn" id="btn">Randomize</button>
+        </div>
         </form>
         <div class="display" id="display"></div>
     </div>
