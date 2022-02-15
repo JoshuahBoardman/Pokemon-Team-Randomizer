@@ -3,18 +3,19 @@ const display = document.getElementById("display");
 const games = document.getElementById("pokemon-games");
 
 let pokedex;
-let pokemon;
 
 btn.addEventListener("click", e => {
     e.preventDefault();
     getGamePokedex();
     generatePokemon();
+    
 })
 
 function generatePokemon() {
     display.innerHTML = '';
     for(let i = 0; i < 6; i++) {
         getRandomPokemon();
+        console.log(i);
     }
 }
 
@@ -26,7 +27,6 @@ async function getRandomPokemon() {
             const pokeId = generatePokemonId(data);
             const pokeName = data.pokemon_entries[pokeId].pokemon_species.name
             getPokemonData(pokeName);
-            
         }
     } catch (error) {
         console.error(error);
@@ -40,6 +40,9 @@ async function getPokemonData(name) {
         if (response.status === 200) {
             const data = await response.json();
             displayPokemonData(data);
+        }
+        if(response.status === 404) {
+            getRandomPokemon();
         }
     } catch (error) {
         console.error(error);
