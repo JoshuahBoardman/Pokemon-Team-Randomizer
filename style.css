@@ -9,6 +9,8 @@
     --primary-color-200: hsl(0, 0%, 98%);
     --primary-color-400: hsl(0, 0%, 94%);
     --primary-color-800: hsl(0, 0%, 10%);
+
+    --shadow: hsl(0, 0%, 59%);
 }
 
 /* Global Styles */
@@ -58,6 +60,7 @@ legend {
 
 .pokemon-name { 
     font-size: 1.3rem;
+    color: var(--primary-color-800);
 }
 
 /* Layout */
@@ -132,7 +135,7 @@ header {
     justify-content: center;
     align-items: center;
     padding-bottom: .5rem;
-    min-height: 15rem;
+    min-height: 13rem;
 }
 
 .pokemon-img-wrapper {
@@ -140,7 +143,7 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    top: -3rem;
+    top: -4rem;
 }
 
 .pokemon-img {
@@ -153,7 +156,7 @@ header {
     align-items: flex-end;
     background-color: var(--primary-color-200);
     border-radius: .25rem;
-    box-shadow: 0 4px 2px -2px rgb(150, 150, 150);
+    box-shadow: 0 4px 2px -2px var(--shadow);
     padding-bottom: .5rem;
     width: 20vmin;
     height: 5rem;
@@ -194,7 +197,7 @@ header {
 
     .pokemon-name-wrapper {
         height: 3rem;
-        width: 25vmin;
+        width: 30vmin;
     }
 
     .pokemon-name {

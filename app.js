@@ -1,34 +1,52 @@
 const btn = document.getElementById('btn');
 const display = document.getElementById("display");
+const games = document.getElementById("pokemon-games");
 
-let pokemonId;
+let pokedex;
+let pokemon;
 
 btn.addEventListener("click", e => {
     e.preventDefault();
-    console.log(pokemonId);
-    
-    getPokemonData();
-    
+    getGamePokedex();
+    generatePokemon();
 })
 
-async function getPokemonData() {
+function generatePokemon() {
     display.innerHTML = '';
     for(let i = 0; i < 6; i++) {
-        pokemonId = generatePokemonId();
-        try {
-            const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonId}`);
-            if (response.status === 200) {
-                const data = await response.json();
-                displayPokemonData(data);
-            }
-        } catch (error) {
-            console.log(error);
+        getRandomPokemon();
+    }
+}
+
+async function getRandomPokemon() {
+    try {
+        const response = await fetch(`https://pokeapi.co/api/v2/pokedex/${pokedex}`);
+        if (response.status === 200) {
+            const data = await response.json();
+            const pokeId = generatePokemonId(data);
+            const pokeName = data.pokemon_entries[pokeId].pokemon_species.name
+            getPokemonData(pokeName);
+            
         }
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+async function getPokemonData(name) {
+    try {
+        console.log(name);
+        const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`);
+        if (response.status === 200) {
+            const data = await response.json();
+            displayPokemonData(data);
+        }
+    } catch (error) {
+        console.error(error);
     }
 }
 
 function displayPokemonData(data) {
-    console.log(data); 
     const formatedName = formatName(data.name);
         display.innerHTML += ` 
         <div class="pokemon">
@@ -42,8 +60,20 @@ function displayPokemonData(data) {
     `
 }
 
-function generatePokemonId() {
-    return Math.floor(Math.random() * 151 + 1);
+function generatePokemonId(data) {
+    return Math.floor(Math.random() * data.pokemon_entries.length + 1);
+}
+
+function getGamePokedex() {
+    const gameSelected = getPokemonGame();
+    const gameDex = gameSelected .split('&');
+    const dexSelected = Math.floor(Math.random() * gameDex.length);
+    pokedex = gameDex[dexSelected];
+}
+
+function getPokemonGame() {
+    const gameSelected = games.value;
+    return gameSelected;
 }
 
 function formatName(name) {
